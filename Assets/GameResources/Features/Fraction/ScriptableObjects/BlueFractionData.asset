@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: BlueFraction
   _fractionMaterial: {fileID: 2100000, guid: 13db6bb38017aa944b85c00f8f021874, type: 2}
+  _fractionBase: {fileID: 0}

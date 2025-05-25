@@ -2,17 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Компонент ресурса
+/// </summary>
 public class Supply : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public bool IsTaken { get; set; }
+    
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        IsTaken = false;
     }
 }

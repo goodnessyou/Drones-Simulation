@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3131914710687027773}
   - component: {fileID: 1471879082525550195}
   - component: {fileID: 3996426306782762916}
+  - component: {fileID: 1854289190282103920}
   m_Layer: 0
   m_Name: FractionBase
   m_TagString: Untagged
@@ -118,4 +119,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fe41c2f7c5216b40a4e38200dbd89f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fractionData: {fileID: 0}
+  _fractionData: {fileID: 11400000, guid: 967121226d01f754081d85a97e709076, type: 2}
+  _renderer: {fileID: 3131914710687027773}
+--- !u!114 &1854289190282103920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4717728871562815323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49b4028b860cd83449e0391da39e83c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fractionData: {fileID: 11400000, guid: 967121226d01f754081d85a97e709076, type: 2}
