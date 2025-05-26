@@ -14,8 +14,8 @@ public class DroneBehavior : MonoBehaviour
     public event Action onSupplyUnload = delegate { };
 
     [Header("Settings")]
-    [SerializeField] private float _collectionTime = 2f;
-    [SerializeField] private float _searchRadius = 20f;
+    [SerializeField, Min(0)] private float _collectionTime = 2f;
+    [SerializeField, Min(0)] private float _searchRadius = 20f;
     [SerializeField] private FractionData _fractionData = default;
     [SerializeField] private LayerMask _resourceLayer = default;
 
