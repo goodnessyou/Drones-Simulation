@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 170355514}
   - component: {fileID: 170355515}
   - component: {fileID: 170355516}
+  - component: {fileID: 170355517}
   m_Layer: 0
   m_Name: SupplySpawner
   m_TagString: Untagged
@@ -186,6 +187,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _randomizeRadius: 9
+--- !u!114 &170355517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170355513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a3eafb14888a1d4487ccdc21b15c6e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _integerValue: {fileID: 11400000, guid: 5794e4830df02df4dab985562c1fea03, type: 2}
 --- !u!114 &273813232 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1854289190282103920, guid: ca2115bd7090ed64fad64314566cddb1, type: 3}
@@ -490,10 +504,6 @@ PrefabInstance:
     - target: {fileID: 7724239091750671864, guid: b63bf82cfbe9c474ab28741c2c2e9b7c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9200538193509342764, guid: b63bf82cfbe9c474ab28741c2c2e9b7c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -4.029
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

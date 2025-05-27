@@ -1546,6 +1546,7 @@ GameObject:
   - component: {fileID: 6715283639734958695}
   - component: {fileID: 8114229697066146819}
   - component: {fileID: 5313441948013776862}
+  - component: {fileID: 4381062628423094220}
   m_Layer: 5
   m_Name: InputField (Legacy)
   m_TagString: Untagged
@@ -1680,6 +1681,19 @@ MonoBehaviour:
   m_CaretWidth: 1
   m_ReadOnly: 0
   m_ShouldActivateOnSelect: 1
+--- !u!114 &4381062628423094220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7574714457259826062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27c0a5a8625b2fa4baa496c5d8382156, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawnRateValue: {fileID: 11400000, guid: 5794e4830df02df4dab985562c1fea03, type: 2}
 --- !u!1 &7671137755193917420
 GameObject:
   m_ObjectHideFlags: 0
