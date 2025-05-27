@@ -85,8 +85,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8115477472809445556}
   - component: {fileID: 4516808079305925512}
+  - component: {fileID: 1740808441819506825}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: DronesCountSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -165,6 +166,19 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1740808441819506825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046995565955299497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee3ab296ffb9f4640a51e7812a5a3437, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speedValue: {fileID: 11400000, guid: 38405aec5641fb34a8d4f99c69189278, type: 2}
 --- !u!1 &1283932863077924977
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,7 +397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee3ab296ffb9f4640a51e7812a5a3437, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speedModel: {fileID: 11400000, guid: 77605c9c792ab7144839b57c2b2e8792, type: 2}
+  _speedValue: {fileID: 11400000, guid: ac1be1ac47d9e6c4eb64fe16890186c0, type: 2}
 --- !u!1 &1517674188806243485
 GameObject:
   m_ObjectHideFlags: 0
@@ -514,7 +528,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a8de5b0b1ae3c143ae6b1ca7efaa32a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speedModel: {fileID: 11400000, guid: 77605c9c792ab7144839b57c2b2e8792, type: 2}
+  _speedModel: {fileID: 11400000, guid: ac1be1ac47d9e6c4eb64fe16890186c0, type: 2}
 --- !u!1 &2241914934037445431
 GameObject:
   m_ObjectHideFlags: 0
@@ -2282,7 +2296,7 @@ GameObject:
   - component: {fileID: 1719122880182440912}
   - component: {fileID: 6346817739236828953}
   m_Layer: 5
-  m_Name: FractionInfo
+  m_Name: RedFractionInfo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2410,8 +2424,9 @@ GameObject:
   - component: {fileID: 6737583762434751193}
   - component: {fileID: 336626819457985250}
   - component: {fileID: 6040693241902098670}
+  - component: {fileID: 7156728620142730090}
   m_Layer: 5
-  m_Name: Text (Legacy) (1)
+  m_Name: DronesCountView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2478,6 +2493,19 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 1
+--- !u!114 &7156728620142730090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8619044652482445311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a8de5b0b1ae3c143ae6b1ca7efaa32a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speedModel: {fileID: 11400000, guid: 38405aec5641fb34a8d4f99c69189278, type: 2}
 --- !u!1 &8894446593818481268
 GameObject:
   m_ObjectHideFlags: 0
@@ -2489,7 +2517,7 @@ GameObject:
   - component: {fileID: 3406561203103309401}
   - component: {fileID: 1195291473692741463}
   m_Layer: 5
-  m_Name: FractionInfo (1)
+  m_Name: BlueFractionInfo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

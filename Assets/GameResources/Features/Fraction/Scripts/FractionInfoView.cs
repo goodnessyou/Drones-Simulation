@@ -10,7 +10,7 @@ public class FractionInfoView : MonoBehaviour
     [SerializeField] private Text _fractionNameText = default;
     [SerializeField] private Text _fractionResourcesText = default;
 
-    private void Awake()
+    private void Start()
     {
         _fractionNameText.text = _frractionData.Id;
         _fractionNameText.color = _frractionData.FractionMaterial.color;

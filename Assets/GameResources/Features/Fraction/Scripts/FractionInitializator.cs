@@ -10,6 +10,7 @@ public class FractionInitializator : MonoBehaviour
 
     private void Awake()
     {
+        _fractionData.ResourcesCount = 0;
         _fractionData.FractionBase = _fractionBase;
     } 
 }

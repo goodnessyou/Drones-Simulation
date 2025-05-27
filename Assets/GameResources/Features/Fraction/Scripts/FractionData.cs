@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 /// <summary>
-/// Данные базы
+/// Данные фракции в виде ScriptableObject
 /// </summary>
 [CreateAssetMenu(fileName = "New FractionData", menuName = "DronesSimulation/Features/Fraction/FractionData")]
 public class FractionData : ScriptableObject

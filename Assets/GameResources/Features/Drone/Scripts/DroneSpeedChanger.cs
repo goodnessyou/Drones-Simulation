@@ -7,7 +7,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class DroneSpeedChanger : MonoBehaviour
 {
-    [SerializeField] private DronesSpeedModel _speedModel = default;
+    [SerializeField] private IntegerValue _speedModel = default;
     private NavMeshAgent _agent = default;
 
     private void Awake()
@@ -16,7 +16,7 @@ public class DroneSpeedChanger : MonoBehaviour
         SetDroneSpeed();
     }
 
-    private void OnEnable() => _speedModel.onDronesSpeedChange += SetDroneSpeed;
-    private void OnDisable() => _speedModel.onDronesSpeedChange -= SetDroneSpeed;
-    private void SetDroneSpeed() => _agent.speed = _speedModel.Speed;
+    private void OnEnable() => _speedModel.onValueChanged += SetDroneSpeed;
+    private void OnDisable() => _speedModel.onValueChanged -= SetDroneSpeed;
+    private void SetDroneSpeed() => _agent.speed = _speedModel.Value;
 }

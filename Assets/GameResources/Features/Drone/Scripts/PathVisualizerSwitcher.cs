@@ -12,15 +12,11 @@ public class PathVisualizerSwitcher : MonoBehaviour
 
     private void Awake()
     {
+        _pathVisible.onValueChanged += SwitchPathVisible;
         _dronePathVisualizer = GetComponent<LineRenderer>();
         SwitchPathVisible();
     } 
 
-    private void OnEnable() => _pathVisible.onValueChanged += SwitchPathVisible;
-    private void OnDisable() => _pathVisible.onValueChanged -= SwitchPathVisible;
-    private void SwitchPathVisible()
-    {
-        _dronePathVisualizer.enabled = _pathVisible.Value;
-
-    } 
+    private void OnDestroy() => _pathVisible.onValueChanged -= SwitchPathVisible;
+    private void SwitchPathVisible() => _dronePathVisualizer.enabled = _pathVisible.Value;
 }

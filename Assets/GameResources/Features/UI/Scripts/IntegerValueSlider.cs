@@ -2,12 +2,12 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// Слайдер для установки скорости дронов
+/// Слайдер для установки Int Value в Scriptable object
 /// </summary>
 [RequireComponent(typeof(Slider))]
-public class DronesSpeedSlider : MonoBehaviour
+public class IntegerValueSlider : MonoBehaviour
 {
-    [SerializeField] private DronesSpeedModel _speedModel = default;
+    [SerializeField] private IntegerValue _speedValue = default;
     private Slider _slider = default;
 
     private void Awake()
@@ -19,7 +19,7 @@ public class DronesSpeedSlider : MonoBehaviour
     private void OnEnable() => _slider.onValueChanged.AddListener(SetDronesSpeed);
     private void OnDisable() => _slider.onValueChanged.RemoveListener(SetDronesSpeed);
 
-    private void SetDronesSpeed(float speed) => _speedModel.Speed = speed;
+    private void SetDronesSpeed(float speed) => _speedValue.Value = (int)speed;
 
-    private void SetSliderValue() => _slider.value = _speedModel.Speed;
+    private void SetSliderValue() => _slider.value = _speedValue.Value;
 }
