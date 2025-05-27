@@ -1,0 +1,61 @@
+# Текстовые файлы с автоматическим определением окончаний строк
+*.cs text eol=lf
+*.shader text eol=lf
+*.cginc text eol=lf
+*.txt text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.html text eol=lf
+*.css text eol=lf
+*.js text eol=lf
+
+# Бинарные файлы (должны обрабатываться как есть)
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.psd binary
+*.tga binary
+*.fbx binary
+*.obj binary
+*.blend binary
+*.wav binary
+*.mp3 binary
+*.ogg binary
+*.aiff binary
+*.exr binary
+*.mov binary
+*.mp4 binary
+*.pdf binary
+*.dll binary
+*.so binary
+*.bundle binary
+
+# Unity специфичные файлы
+*.unity binary
+*.prefab binary
+*.mat binary
+*.asset binary
+*.meta text eol=lf
+*.controller binary
+*.anim binary
+*.overrideController binary
+*.physicMaterial binary
+*.physicsMaterial2D binary
+*.guiskin binary
+*.fontsettings binary
+*.shadervariants binary
+
+# Настройки для файлов проекта
+.gitattributes text eol=lf
+.gitignore text eol=lf
+*.sln text eol=lf
+*.csproj text eol=lf
+
+# Игнорировать изменения в окончаниях строк для этих файлов
+*.unity -text
+*.prefab -text
+*.mat -text
+*.asset -text
