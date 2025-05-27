@@ -13,11 +13,6 @@ public class PoolSpawner : CycleSpawner
     /// </summary>
     public event Action onPoolObjectSpawned = delegate { };
 
-    /// <summary>
-    /// Получение количества объектов в пуле
-    /// </summary>
-    public int CountPoolObjects => items.Count;
-
     [SerializeField] protected List<ItemPool> items = new List<ItemPool>();
     [SerializeField, Min(0)] protected int countPrewarm = 3;
     protected ItemPool tempItem = default;

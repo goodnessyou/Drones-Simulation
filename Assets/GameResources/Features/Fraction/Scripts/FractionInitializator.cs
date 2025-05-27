@@ -8,5 +8,9 @@ public class FractionInitializator : MonoBehaviour
     [SerializeField] private FractionData _fractionData = default;
     [SerializeField] private FractionBase _fractionBase = default;
 
-    private void Awake() => _fractionData.FractionBase = _fractionBase;
+    private void Awake()
+    {
+        _fractionData.ResourcesCount = 0;
+        _fractionData.FractionBase = _fractionBase;
+    } 
 }

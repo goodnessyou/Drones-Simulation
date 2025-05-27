@@ -13,22 +13,34 @@ public class DroneBehavior : MonoBehaviour
     /// </summary>
     public event Action onSupplyUnload = delegate { };
 
+    public FractionData Fraction
+    {
+        get => _fraction;
+        set
+        {
+            if (_fraction != value)
+            {
+                _fraction = value;
+            }
+        }
+    }
+
     [Header("Settings")]
-    [SerializeField] private float _collectionTime = 2f;
-    [SerializeField] private float _searchRadius = 20f;
-    [SerializeField] private FractionData _fractionData = default;
+    [SerializeField, Min(0)] private float _collectionTime = 2f;
+    [SerializeField, Min(0)] private float _searchRadius = 20f;
+    [SerializeField] private FractionData _fraction = default;
     [SerializeField] private LayerMask _resourceLayer = default;
 
     private NavMeshAgent _agent = default;
     private FractionBase _homeBase = default;
     private GameObject _currentTarget = default;
     private bool _isWorking = true;
+    private Coroutine _workCycle = default;
 
-    private void Start()
+    public void SetUp()
     {
-        _agent = GetComponent<NavMeshAgent>();
-        _homeBase = _fractionData.FractionBase;
-        
+        _homeBase = _fraction.FractionBase;
+
         if (_homeBase == null)
         {
             Debug.LogError("No ResourceBase found in scene!");
@@ -36,7 +48,39 @@ public class DroneBehavior : MonoBehaviour
             return;
         }
 
-        StartCoroutine(WorkCycle());
+        if (_workCycle == null)
+        {
+            _workCycle = StartCoroutine(WorkCycle());
+        }
+        
+    }
+
+    private void Awake()
+    {
+        _agent = GetComponent<NavMeshAgent>();
+        _agent.avoidancePriority = UnityEngine.Random.Range(1, 100);
+    }
+
+    private void OnEnable()
+    {
+        if (_fraction != null)
+        {
+            SetUp();
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (_currentTarget != null)
+        {
+            _currentTarget.GetComponent<Supply>().IsTaken = false;
+        }
+
+        if (_workCycle != null)
+        {
+            StopCoroutine(_workCycle);
+            _workCycle = null;
+        }
     }
 
     IEnumerator WorkCycle()
@@ -48,7 +92,6 @@ public class DroneBehavior : MonoBehaviour
 
             if (_currentTarget == null)
             {
-                Debug.Log("No resources found, waiting...");
                 yield return new WaitForSeconds(1f);
                 continue;
             }
@@ -61,15 +104,16 @@ public class DroneBehavior : MonoBehaviour
 
             // Уничтожаем ресурс
             _currentTarget.SetActive(false);
-            _currentTarget.GetComponent<Supply>().IsTaken = false;
 
             // 4. Вернуться на базу
             _agent.SetDestination(_homeBase.transform.position);
             yield return new WaitUntil(() => _agent.remainingDistance <= _agent.stoppingDistance && !_agent.pathPending);
 
             // 5. Выгрузить ресурс (визуальные эффекты)
+            _fraction.ResourcesCount++;
             onSupplyUnload.Invoke();
             yield return new WaitForSeconds(_collectionTime);
+            _agent.SetDestination(_currentTarget.transform.position);
         }
     }
 
@@ -81,7 +125,6 @@ public class DroneBehavior : MonoBehaviour
 
         foreach (var hitCollider in hitColliders)
         {
-            // Проверяем, не занят ли ресурс другим дроном
             if (hitCollider.GetComponent<Supply>() && !hitCollider.GetComponent<Supply>().IsTaken)
             {
                 float distance = Vector3.Distance(transform.position, hitCollider.transform.position);
@@ -100,7 +143,7 @@ public class DroneBehavior : MonoBehaviour
 
         return nearestResource;
     }
-    
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;

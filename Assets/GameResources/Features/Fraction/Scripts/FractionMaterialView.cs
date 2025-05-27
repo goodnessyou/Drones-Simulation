@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -7,10 +5,25 @@ using UnityEngine;
 /// </summary>
 public class FractionMaterialView : MonoBehaviour
 {
+    public FractionData FractionData
+    {
+        get => _fractionData;
+        set
+        {
+            if (_fractionData != value)
+            {
+                _fractionData = value;
+                SetMaterial();
+            }
+        }
+    }
+
     [SerializeField] private FractionData _fractionData = default;
     [SerializeField] private Renderer _renderer = default;
 
-    private void Awake()
+    private void OnEnable() => SetMaterial();
+
+    private void SetMaterial()
     {
         if (_fractionData != null && _renderer != null)
         {

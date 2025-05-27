@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -7,10 +5,20 @@ using UnityEngine;
 /// </summary>
 public class Supply : MonoBehaviour
 {
-    public bool IsTaken { get; set; }
-    
-    void Start()
+    public bool IsTaken
     {
-        IsTaken = false;
+        get => _isTaken;
+        set
+        {
+            if (_isTaken != value)
+            {
+                _isTaken = value;
+            }
+        }
     }
+    
+    [SerializeField] private bool _isTaken = false;
+    
+    void OnEnable() => IsTaken = false;
+    
 }
