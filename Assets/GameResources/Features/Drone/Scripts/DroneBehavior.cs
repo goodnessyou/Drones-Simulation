@@ -24,11 +24,13 @@ public class DroneBehavior : MonoBehaviour
     private GameObject _currentTarget = default;
     private bool _isWorking = true;
 
+    private void Awake() => _agent = GetComponent<NavMeshAgent>();
+    
     private void Start()
     {
-        _agent = GetComponent<NavMeshAgent>();
+        Debug.Log(_fractionData.FractionBase);
         _homeBase = _fractionData.FractionBase;
-        
+
         if (_homeBase == null)
         {
             Debug.LogError("No ResourceBase found in scene!");
@@ -68,6 +70,7 @@ public class DroneBehavior : MonoBehaviour
             yield return new WaitUntil(() => _agent.remainingDistance <= _agent.stoppingDistance && !_agent.pathPending);
 
             // 5. Выгрузить ресурс (визуальные эффекты)
+            _fractionData.ResourcesCount++;
             onSupplyUnload.Invoke();
             yield return new WaitForSeconds(_collectionTime);
         }

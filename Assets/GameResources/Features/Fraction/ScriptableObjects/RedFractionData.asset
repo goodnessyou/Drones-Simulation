@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: RedFraction
   _fractionMaterial: {fileID: 2100000, guid: c4dca3c016f529a45a9d1304b72bb5f4, type: 2}
+  _resourcesCount: 0
+  _fractionBase: {fileID: 0}
